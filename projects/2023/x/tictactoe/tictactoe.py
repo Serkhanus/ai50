@@ -174,15 +174,10 @@ def calculate_scores(board):
             y = calculate_scores(new_board)
             delta_v.append(y)
 
-    for z, x in enumerate(delta_v):
-        if x[1] == crit:
-            return [x[0], x[1]]
-    for z, x in enumerate(delta_v):
-        if x[1] == 0:
-            return [x[0], x[1]]
-    for z, x in enumerate(delta_v):
-        if x[1] == -crit:
-            return [x[0], x[1]]
+    for test in (crit, 0, -crit):
+        for z, x in enumerate(delta_v):
+            if x[1] == test:
+                return [x[0], x[1]]
 
 
 
@@ -216,15 +211,10 @@ def calculate_scores2(board):
                     delta_v.append(y)
                     local_boards[board_tostr(new_board)] = y[1]
 
-    for z, x in enumerate(delta_v):
-        if x[1] == crit:
-            return [x[0], x[1]]
-    for z, x in enumerate(delta_v):
-        if x[1] == 0:
-            return [x[0], x[1]]
-    for z, x in enumerate(delta_v):
-        if x[1] == -crit:
-            return [x[0], x[1]]
+    for test in (crit, 0, -crit):
+        for z, x in enumerate(delta_v):
+            if x[1] == test:
+                return [x[0], x[1]]
 
 
 def calculate_scores_abp(board):
@@ -267,15 +257,10 @@ def calculate_scores_abp(board):
                     # else:
                     #     delta_v.append(y)
 
-    for x in delta_v:
-        if x[1] == crit:
-            return [x[0], x[1]]
-    for x in delta_v:
-        if x[1] == 0:
-            return [x[0], x[1]]
-    for x in delta_v:
-        if x[1] == -crit:
-            return [x[0], x[1]]
+    for test in (crit, 0, -crit):
+        for z, x in enumerate(delta_v):
+            if x[1] == test:
+                return [x[0], x[1]]
 
 
 def calculate_scores_abp2(board):
@@ -313,15 +298,10 @@ def calculate_scores_abp2(board):
             else:
                 delta_v.append(y)
 
-    # for x in delta_v:
-    #     if x[1] == crit:
-    #         return [x[0], x[1]]
-    for x in delta_v:
-        if x[1] == 0:
-            return [x[0], x[1]]
-    for x in delta_v:
-        if x[1] == -crit:
-            return [x[0], x[1]]
+    for test in (0, -crit):
+        for z, x in enumerate(delta_v):
+            if x[1] == test:
+                return [x[0], x[1]]
 
 
 def board_tostr(board):
