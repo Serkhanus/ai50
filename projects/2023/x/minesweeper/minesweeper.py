@@ -201,7 +201,7 @@ class MinesweeperAI():
         else:
             self.knowledge.append(Sentence(cells, count))
 
-        safes =[]
+        safes = []
         mines = []
         for item in self.knowledge:
             if item.count == 0:
